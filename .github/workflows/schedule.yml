@@ -2,7 +2,7 @@ name: Demo Reminder Automation
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Every 15 minutes to see if i need to host a server or if github actions will be sufficient for hosting the bot
+    - cron: '0 9 * * 2,3,4' 
   workflow_dispatch:
 
 jobs:
@@ -26,3 +26,9 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          # SLACK_BOT_ITP_TOKEN: ${{ secrets.SLACK_BOT_ITP_TOKEN }}
+          # SLACK_ITP_CHANNEL_ID: ${{ secrets.SLACK_ITP_CHANNEL_ID }}
+          # SLACK_BOT_ITD_TOKEN: ${{ secrets.SLACK_BOT_ITD_TOKEN }}
+          # SLACK_ITD_CHANNEL_ID: ${{ secrets.SLACK_ITD_CHANNEL_ID }}
+          # SLACK_BOT_CYF_TOKEN: ${{ secrets.SLACK_BOT_CYF_TOKEN }}
+          # SLACK_CYF_CHANNEL_ID: ${{ secrets.SLACK_CYF_CHANNEL_ID }}
