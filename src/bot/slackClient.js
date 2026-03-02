@@ -1,23 +1,29 @@
-const {webClient} = require('@slack/web-api');
-require('dotenv').config();
+const { webClient } = require('@slack/web-api');
 
-const token = process.env.SLACK_BOT_TOKEN;
-const channelId = process.env.SLACK_CHANNEL_ID;
+/**
+ * Create a new Slack client instance
+ * @param {string} token - Slack bot token
+ * @returns {object} Slack client instance
+ */
+const slackClient = (token) => new webClient(token);
 
-const slackClient = new webClient(token);
-
-async function sendMessage(channelId,message) {
-    try {
-        await slackClient.chat.postMessage({
-            channel: channelId,
-            text: message,
-        });
-        console.log('Message sent successfully');
-    } catch (error) {
-        console.error('Api error:', error);
-    }
+/**
+ * Sends a message to a Slack channel
+ * @param {object} client - Slack client instance   
+ * @param {string} channel - Slack channel ID
+ * @param {string} message - Message text
+ * @throws Will throw an error if the API call fails
+ */
+async function sendMessage(client, channelId, message) {
+	try {
+		await client.chat.postMessage({
+			channel: channelId,
+			text: message,
+		});
+		console.log('Message sent successfully');
+	} catch (error) {
+		console.error('Api error:', error);
+	}
 }
 
-module.exports = {
-  sendMessage,  
-};  
+module.exports = { slackClient, sendMessage };
