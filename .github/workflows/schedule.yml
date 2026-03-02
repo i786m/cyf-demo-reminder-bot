@@ -2,8 +2,7 @@ name: Demo Reminder Automation
 
 on:
   schedule:
-    - cron: '*/3 * * * *' # Every 3 minutes for testing purposes
-    # - cron: "0 9 * * 1,4" # Monday and Thursday at 09:00 UTC
+    - cron: '*/15 * * * *' # Every 15 minutes to see if i need to host a server or if github actions will be sufficient for hosting the bot
   workflow_dispatch:
 
 jobs:
