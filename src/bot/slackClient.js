@@ -5,7 +5,9 @@ const { WebClient } = require('@slack/web-api');
  * @param {string} token - Slack bot token
  * @returns {object} Slack client instance
  */
-const slackClient = (token) => new WebClient(token);
+function slackClient(token) {
+	return new WebClient(token);
+}   
 
 /**
  * Sends a message to a Slack channel
