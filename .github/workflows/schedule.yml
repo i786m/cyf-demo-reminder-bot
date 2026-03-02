@@ -2,7 +2,8 @@ name: Demo Reminder Automation
 
 on:
   schedule:
-    - cron: "0 9 * * 1,4" # Monday and Thursday at 09:00 UTC
+    - cron: '*/3 * * * *'
+    # - cron: "0 9 * * 1,4" # Monday and Thursday at 09:00 UTC
   workflow_dispatch:
 
 jobs:
