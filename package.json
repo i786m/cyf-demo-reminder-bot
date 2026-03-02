@@ -1,18 +1,18 @@
 {
   "name": "cyf-demo-reminder-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "automated reminder bot for CYF demo day",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/i786m/cyf-demo-reminder-bot.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["slack", "bot", "reminder", "automation", "CYF", "demo day","github actions"],
+  "author": "Imran Mohamed",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/i786m/cyf-demo-reminder-bot/issues"
   },
