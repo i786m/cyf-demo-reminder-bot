@@ -1,11 +1,11 @@
-const { webClient } = require('@slack/web-api');
+const { WebClient } = require('@slack/web-api');
 
 /**
  * Create a new Slack client instance
  * @param {string} token - Slack bot token
  * @returns {object} Slack client instance
  */
-const slackClient = (token) => new webClient(token);
+const slackClient = (token) => new WebClient(token);
 
 /**
  * Sends a message to a Slack channel
