@@ -1,11 +1,12 @@
-const { WebClient } = require('@slack/web-api');
+import { WebClient } from '@slack/web-api';
+import { logToFile } from '../index.mjs';
 
 /**
  * Create a new Slack client instance
  * @param {string} token - Slack bot token
  * @returns {object} Slack client instance
  */
-function slackClient(token) {
+export function slackClient(token) {
 	return new WebClient(token);
 }   
 
@@ -14,18 +15,15 @@ function slackClient(token) {
  * @param {object} client - Slack client instance   
  * @param {string} channel - Slack channel ID
  * @param {string} message - Message text
- * @throws Will throw an error if the API call fails
+ * Errors are handled gracefully: if the API call fails, the error is logged.
  */
-async function sendMessage(client, channelId, message) {
+export async function sendMessage(client, channelId, message) {
 	try {
 		await client.chat.postMessage({
 			channel: channelId,
 			text: message,
 		});
-		console.log('Message sent successfully');
 	} catch (error) {
-		console.error('Api error:', error);
+		logToFile(`ERROR: Failed to send message to channel ${channelId}. ${error}`);
 	}
 }
-
-module.exports = { slackClient, sendMessage };
